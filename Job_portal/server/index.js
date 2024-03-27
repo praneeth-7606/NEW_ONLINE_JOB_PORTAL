@@ -40,28 +40,13 @@ dotenv.config();
 
 app.use(express.json())
 
-// const uploadsDirectory = path.join(__dirname, 'uploads');
 
-// Serve static files from the uploads directory
-// app.use('/uploads/', express.static(uploadsDirectory));
-// app.use((req, res, next) => {
-//     const headers = headersConfig();
-//     headers.forEach(header => {
-//         res.setHeader(header.key, header.value);
-//     });
-//     next();
-// });
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*"); // Allow requests from any origin
     res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups"); // Allow popups from same origin
     next();
   });
-// app.use(session({
-//     secret:"keyboard cat",
-//     resave:false,
-//     saveUninitialized:true,
-//     cookie:{secure:false}
-// }))
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/api/route/auth",authroutes)

@@ -16,11 +16,11 @@ import Sidenavbar from '../sidenavbar';
 import Searchinput from '../form/searchinput';
 import { Badge } from "antd";
 function Header1() {
-  const {auth,setauth,userId}=useAuth()
+  const {auth,setAuth,userId}=useAuth()
 
 
   const handlelogout=()=>{
-    setauth({
+    setAuth({
       ...auth,user:null,token:""
     })
     localStorage.removeItem("auth")
